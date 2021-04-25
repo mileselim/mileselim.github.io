@@ -1,0 +1,113 @@
+body {
+    margin: 0%;
+    padding: 0%;
+    color: #000000;
+    scroll-behavior: smooth;
+    background-color: black;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.background {
+    background-image: url("Files/Background Photo/Background Forest (centered).png");
+    background-color: #ffffff;
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.backgroundmiles {
+    background-image: url("Files/Jumping Mileseseses/Crouch.png");
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: fixed;
+    top: 0;
+    z-index: 50;
+    left: 0;
+    width: 100%;
+}
+
+.backgroundmiles.invisible {
+    display: none;
+}
+
+#allIcons {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 50vw;
+    padding-bottom: 50px;
+    z-index: 75;
+}
+
+.icon {
+    display: block;
+    width: 50px;
+    opacity: 1;
+    z-index: 75;
+}
+
+.icon:hover {
+    transform: scale(1.2);
+}
+
+#icon1 {
+    position: inherit;
+    opacity: inherit;
+    top: 1300px;
+    left: 530px;
+}
+
+#icon2 {
+    position: inherit;
+    opacity: inherit;
+    top: 400px;
+    left: 230px;
+}
+
+.texts {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 1.6vw;
+    line-height: 1.6;
+    text-justify: inter-word;
+    text-align: justify;
+    justify-content: space-between;
+    display: none;
+    letter-spacing: 0.1em;
+    /* text-align: center; */
+    position: fixed;
+    width: 50vw;
+    left: 25%;
+    top: 15vh;
+    z-index: 100;
+}
+
+.title {
+    text-align: right;
+    cursor: pointer;
+}
+
+.texts.is-visible {
+    display: block
+}
+
+.project_img {
+    display: none;
+    width: 100%;
+    position: relative;
+}
+
+.project_img.is-visible {
+    display: block;
+}
+
+.bodytext.invisible {
+    display: none;
+}
