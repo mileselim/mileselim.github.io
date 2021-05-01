@@ -5,6 +5,7 @@ var description = document.getElementById("description");
 var alltexts = document.querySelectorAll(".texts");
 var timer;
 var source_num = 1;
+var seek = false;
 
 $(document).ready(function() {
     setTimer();
@@ -15,42 +16,89 @@ $(document).ready(function() {
 
     });
 
-    $("#miles").on("click", function(event) {
-        menuMiles();
+    $(".background").click(function() {
+
+        console.log("seek", seek)
+        if (seek == false) {
+            hidetexts()
+            setTimer()
+        } else if (seek == true) {
+            seek = false
+            hidetexts()
+            milesiscaught()
+        }
     });
 
+
+    $(".backgroundmiles").click(function() {
+        console.log("seek", seek)
+        if (seek == false) {
+            hidetexts()
+            setTimer()
+        } else if (seek == true) {
+            seek = false
+            hidetexts()
+            milesiscaught()
+        }
+
+    });
+
+
+
+    // $("#miles").on("click", function(event) {
+    //     menuMiles();
+    //     console.log("caughtttt!")
+    // });
+
     $(".icons a").click(function() {
-        $(imgMiles).toggleClass('invisible');
+        $(imgMiles).removeClass();
+        $(imgMiles).addClass('invisible');
+        clearInterval(timer);
+        seek = false
         var selectedProject = $(this).attr('href');
         // document.querySelectorAll('.texts').classList.remove('is-visible');
         document.querySelectorAll('.texts:not(' + selectedProject + ')').forEach(el => el.classList.remove('is-visible'))
         $(selectedProject).toggleClass("is-visible");
-        resetMiles();
+        //resetMiles();
     });
 
 });
 
 
-
-function changeMiles() {
-    //console.log("changed");
-    randomMiles = getRndInteger(0, 3);
-    imgMiles.style.backgroundImage = 'url("Files/Jumping Mileseseses/' + miles[randomMiles] + '.png")';
+function hidetexts() {
+    document.querySelectorAll('.texts').forEach(el => el.classList.remove('is-visible'))
 }
 
-function menuMiles() {
-    document.querySelectorAll('.texts:not(#description)').forEach(el => el.classList.remove('is-visible'))
-    $("#description").toggleClass("is-visible");
-    resetMiles();
+
+function milesiscaught() {
+    //  document.querySelectorAll('.texts:not(#description)').forEach(el => el.classList.remove('is-visible'))
+    $("#description").addClass("is-visible");
+    $(imgMiles).removeClass();
+    $(imgMiles).addClass("backgroundmiles");
+    $(imgMiles).addClass("Caught");
+    clearInterval(timer);
+    // resetMiles();
+}
+
+
+
+function setTimer() {
+    clearInterval(timer);
+    if (seek == false) {
+        seek = true
+    }
+    timer = setInterval(function() { changeMiles() }, 1000);
+}
+
+function changeMiles() {
+    randomMiles = getRndInteger(0, 3);
+    $(imgMiles).removeClass();
+    $(imgMiles).addClass("backgroundmiles");
+    $(imgMiles).addClass(miles[randomMiles] + '');
 }
 
 function getRndInteger(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
-}
-
-function setTimer() {
-    clearInterval(timer);
-    timer = setInterval(function() { changeMiles() }, 1000);
 }
 
 
@@ -58,7 +106,9 @@ function resetMiles() {
     if ((document.querySelectorAll(".is-visible").length) == 0) {
         setTimer()
     } else {
-        imgMiles.style.backgroundImage = 'url("Files/Jumping Mileseseses/Caught!.png")';
+        $(imgMiles).removeClass();
+        $(imgMiles).addClass("backgroundmiles");
+        $(imgMiles).addClass("Caught");
         clearInterval(timer);
     };
 
@@ -69,7 +119,7 @@ function displayproject(num) {
 
     var id_img = "img_" + num + "";
     var id_text = "text_" + num + "";
-    var url = "assets/images/"
+    var url = "assets/projects/"
     var curr_img = document.getElementById(id_img);
     var max_img = curr_img.src.slice(-14, -13);
 

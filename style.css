@@ -2,13 +2,15 @@ body {
     margin: 0%;
     padding: 0%;
     color: #000000;
+    cursor: default;
     scroll-behavior: smooth;
     background-color: black;
+    cursor: default;
     font-family: Arial, Helvetica, sans-serif;
 }
 
 .background {
-    background-image: url("Files/Background Photo/Background Forest (centered).png");
+    background-image: url("assets/other/bg.png");
     background-color: #ffffff;
     height: 100vh;
     background-position: center;
@@ -18,10 +20,22 @@ body {
     top: 0;
     left: 0;
     width: 100%;
+    cursor: default;
 }
 
 .backgroundmiles {
-    background-image: url("Files/Jumping Mileseseses/Crouch.png");
+    position: fixed;
+    z-index: 50;
+    cursor: default;
+}
+
+
+/* .backgroundmiles:hover {
+    transform: scale(1.2);
+} */
+
+.backgroundmiles.Tree {
+    background-image: url("assets/other/Tree.png");
     height: 100vh;
     background-position: center;
     background-repeat: no-repeat;
@@ -33,24 +47,62 @@ body {
     width: 100%;
 }
 
+.backgroundmiles.Crouch {
+    background-image: url("assets/other/Crouch.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: fixed;
+    z-index: 50;
+    left: 60vw;
+    height: 20%;
+    top: 50vh;
+    width: 20%;
+}
+
+.backgroundmiles.Run {
+    background-image: url("assets/other/Run.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: fixed;
+    z-index: 50;
+    left: 10vw;
+    height: 70%;
+    bottom: 5vh;
+    width: 70%;
+}
+
+.backgroundmiles.Caught {
+    background-image: url("assets/other/Caught.png");
+    background-size: contain;
+    height: 70%;
+    background-repeat: no-repeat;
+    position: fixed;
+    z-index: 50;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 70%;
+    top: 10vh;
+}
+
 .backgroundmiles.invisible {
     display: none;
 }
 
 #allIcons {
-    position: relative;
+    position: fixed;
     top: 0;
     left: 0;
-    width: 50vw;
-    padding-bottom: 50px;
-    z-index: 75;
+    cursor: default;
+    z-index: 175;
 }
 
 .icon {
     display: block;
-    width: 50px;
+    width: calc(100% / 12);
+    min-width: 50px;
     opacity: 1;
     z-index: 75;
+    cursor: default;
 }
 
 .icon:hover {
@@ -60,38 +112,54 @@ body {
 #icon1 {
     position: inherit;
     opacity: inherit;
-    top: 1300px;
-    left: 530px;
+    top: 10vh;
+    left: 10vw;
 }
 
 #icon2 {
     position: inherit;
     opacity: inherit;
-    top: 400px;
-    left: 230px;
+    top: 5vh;
+    right: 5vw;
+}
+
+#icon3 {
+    position: inherit;
+    opacity: inherit;
+    top: 60vh;
+    left: 30vw;
+}
+
+#icon4 {
+    position: inherit;
+    opacity: inherit;
+    top: 85vh;
+    left: 70vw;
 }
 
 .texts {
+    cursor: default;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
-    font-size: 1.6vw;
+    font-size: 20px;
     line-height: 1.6;
     text-justify: inter-word;
     text-align: justify;
     justify-content: space-between;
     display: none;
     letter-spacing: 0.1em;
-    /* text-align: center; */
-    position: fixed;
+    position: relative;
     width: 50vw;
-    left: 25%;
-    top: 15vh;
+    min-width: 200px;
+    margin-top: 15vh;
+    left: 50%;
+    transform: translate(-50%, 0);
     z-index: 100;
 }
 
 .title {
     text-align: right;
-    cursor: pointer;
+    cursor: default;
 }
 
 .texts.is-visible {
@@ -99,6 +167,7 @@ body {
 }
 
 .project_img {
+    cursor: default;
     display: none;
     width: 100%;
     position: relative;
